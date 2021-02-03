@@ -68,3 +68,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+npx create-eact-app checkers
+
+cd checkers
+
+npm install node-sass@4.14.1
+
+npm add --dev react-test-renderer
+
+npm install enzyme @wojtekmaj/enzyme-adapter-react-17 enzyme-to-json --save-dev
+
+
+
+
+
+
+into setupTests.js
+import { configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+
+configure({ adapter: new Adapter() });
+
+
+in to package.json
+"jest": {
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "collectCoverageFrom": ["src/**/*.js", "!src/index.js"],
+  "coverageReporters": ["text"]
+}
+
